@@ -93,9 +93,9 @@ contract LotteryToken is LotteryEngine, ILotteryToken {
 		Locked
 	}
 
-	uint256 public liquiditySupplyThreshold = 1_000_000 * 1e18;
+	uint256 public liquiditySupplyThreshold = 100_000 * 1e18;
 
-	uint256 public feeSupplyThreshold = 10_000_000 * 1e18;
+	uint256 public feeSupplyThreshold = 100_000 * 1e18;
 
 	uint8 public immutable decimals = 18;
 	
@@ -159,6 +159,7 @@ contract LotteryToken is LotteryEngine, ILotteryToken {
 		_isExcludedFromFee[owner()] = true;
 		_isExcludedFromFee[address(this)] = true;
 		_isExcludedFromFee[_mintSupplyTo] = true;
+		_isExcludedFromFee[_lConfig.donationAddress] = true;
 		_isExcludedFromFee[_dConfig.holderLotteryPrizePoolAddress] = true;
 		_isExcludedFromFee[_dConfig.firstBuyLotteryPrizePoolAddress] = true;
 		_isExcludedFromFee[_dConfig.donationLotteryPrizePoolAddress] = true;
@@ -170,11 +171,11 @@ contract LotteryToken is LotteryEngine, ILotteryToken {
 	}
 
 	function name () public pure returns (string memory) {
-		return "Smash Time";
+		return "Shia Labeouf Flag";
 	}
 
 	function symbol () public pure returns (string memory) {
-		return "SMH";
+		return "SLF";
 	}
 
 	function totalSupply () public view returns (uint256) {

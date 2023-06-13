@@ -85,7 +85,7 @@ abstract contract LotteryEngine is PancakeAdapter, VRFConsumerBaseV2 {
 			}
 			_bought[_recipient] = true;
 			uint256 usdAmount = _TokenPriceInUSD(_amount) /  _TUSD_DECIMALS;
-			uint256 hundreds = usdAmount / 100;
+			uint256 hundreds = usdAmount;
 			if (hundreds == 0) {
 				return;
 			}
